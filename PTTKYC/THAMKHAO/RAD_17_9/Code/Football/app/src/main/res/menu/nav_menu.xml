@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Tài khoản">
+        <menu>
+            <item
+                android:id="@+id/view_history"
+                android:icon="@drawable/ic_history"
+                android:title="Lịch sử đặt sân" />
+            <item
+                android:id="@+id/change_password"
+                android:icon="@drawable/ic_change_password"
+                android:title="Đổi mật khẩu" />
+            <item android:id="@+id/log_out"
+                android:title="Đăng xuất"
+                android:icon="@drawable/ic_exit"/>
+        </menu>
+    </item>
+ </menu>

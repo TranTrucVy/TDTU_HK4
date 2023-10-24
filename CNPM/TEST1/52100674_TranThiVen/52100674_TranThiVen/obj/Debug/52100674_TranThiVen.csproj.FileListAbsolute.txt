@@ -1,0 +1,13 @@
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\bin\Debug\52100674_TranThiVen.exe.config
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\bin\Debug\52100674_TranThiVen.exe
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\bin\Debug\52100674_TranThiVen.pdb
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\52100674_TranThiVen.csproj.AssemblyReference.cache
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\52100674_TranThiVen.csproj.SuggestedBindingRedirects.cache
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\_52100674_TranThiVen.Form1.resources
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\_52100674_TranThiVen.Properties.Resources.resources
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\52100674_TranThiVen.csproj.GenerateResource.cache
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\52100674_TranThiVen.csproj.CoreCompileInputs.cache
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\52100674_TranThiVen.exe
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\52100674_TranThiVen.pdb
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\_52100674_TranThiVen.QLMuon.resources
+E:\ComputerScience\HK4\CNPM\TEST1\52100674_TranThiVen\52100674_TranThiVen\obj\Debug\_52100674_TranThiVen.QLTraSach.resources

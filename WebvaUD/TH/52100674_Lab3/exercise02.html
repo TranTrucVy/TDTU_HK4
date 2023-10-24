@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<style>
+    .container{
+        max-width: 600px;
+    }
+</style>
+
+<div class="container">
+    <h2>Add student</h2>
+    <form action="/action_page.php">
+
+        <div class="form-group">
+            <label for="firstname">First name:</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last name:</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="lastname">
+        </div>
+
+        <div class="form-group ">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+
+        <div id = "loi"></div>
+        <button type="button" class="btn btn-default" id = "add">Add</button>
+    </form>
+
+    <br>
+    <table class="table table-hover" id = "table">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+            <td><button onclick="DeleteInf(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+            <td><button onclick="DeleteInf(this)">Delete</button></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+    <script>
+        let firstname = document.getElementById("firstname");
+        let lastname = document.getElementById("lastname");
+        let email = document.getElementById("email");
+        let err = document.getElementById("loi");
+        let regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+        const them = document.getElementById('add');
+
+        $('#loi').css('color','red');
+        firstname.addEventListener("focus",(event)=>{
+            err.innerHTML='';
+        })
+        lastname.addEventListener("focus",(event)=>{
+            err.innerHTML='';
+        })
+        email.addEventListener("focus",(event)=>{
+            err.innerHTML='';
+        })
+        them.addEventListener("click",(event)=>{
+            if(firstname.value==""){
+                err.innerHTML="Please enter your First name!"
+                event.defaultPrevented();
+            }
+            else if(lastname.value==""){
+                err.innerHTML="Please enter your Last name!"
+                event.defaultPrevented();
+            }
+            else if(email.value==""){
+                err.innerHTML ="Please enter your Email!"
+                event.preventDefault();
+            }
+            else if(regex.test(email.value)==false){
+                err.innerHTML ="Your email is not correct!"
+                event.preventDefault();
+                return false;
+            }
+            else{
+                addInfor();
+            }
+        })
+        function addInfor(){
+            var table = document.getElementById("table");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            cell1.innerHTML = firstname.value;
+            cell2.innerHTML = lastname.value;
+            cell3.innerHTML = email.value;
+
+            cell4.innerHTML = "<button onclick ='DeleteInf(this)'>Delete</button>";
+            
+            firstname.value="";
+            lastname.value="";
+            email.value="";
+        }
+        function DeleteInf(r){
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("table").deleteRow(i);
+    }
+    </script>
+
+</body>
+</html>

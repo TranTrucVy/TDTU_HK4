@@ -1,0 +1,172 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+[class*="col-"] {
+    float: left;
+}
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.row {
+    width: 100%;
+}
+
+.col-1 {
+    width: 8.3333%;
+}
+.col-2 {
+    width: 16.6666%;
+}
+.col-3 {
+    width: 25%;
+}
+.col-4 {
+    width: 33.3333%;
+}
+.col-5 {
+    width: 41.6666%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-7 {
+    width: 58.3333%;
+}
+.col-8 {
+    width: 66.6666%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-10 {
+    width: 83.3333%;
+}
+.col-11 {
+    width: 91.6666%;
+}
+.col-12 {
+    width: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+.h-100 {
+    height: 100%;
+}
+.mh-250 {
+    max-height: 250px;
+}
+.pr-20 {
+    padding-right: 80px;
+}
+.pl-20 {
+    padding-left: 80px;
+}
+.pt-4 {
+    padding-top: 16px;
+}
+.pb-4 {
+    padding-bottom: 16px;
+}
+.d-block {
+    display: block;
+}
+.obj-cover {
+    object-fit: cover;
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+.over-hiden {
+    overflow: hidden;
+}
+.text-center {
+    text-align: center;
+}
+.justify-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* end common css */
+
+.main-title {
+    margin-top: 16px;
+    text-transform: uppercase;
+    color: #a0a042;
+    font-weight: 500;
+}
+/* travel-info */
+.travel-info {
+    margin-bottom: 16px;
+}
+.travel-info-title {
+    background-color: #f7f7f7;
+    text-transform: capitalize;
+    color: #42709f;
+    padding: 8px 0;
+    margin-bottom: 8px;
+}
+
+.sites,
+.locations {
+    /* margin: -16px;    */
+    list-style-type: none;
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.site,
+.location {
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    /* margin-bottom: 8px; */
+}
+
+.sites .site:hover,
+.locations .location:hover {
+    background-color: #f9f9f9;
+}
+
+/* places */
+.places,
+.place-title,
+.place {
+    border: 1px solid #000;
+}
+.place .title {
+    border-bottom: 2px solid #000;
+    padding: 4px;
+    color: #5982aa;
+}
+.place-title {
+    color: #48a174;
+    text-transform: uppercase;
+    background-color: #e2e2e2;
+    font-weight: 500;
+    padding: 4px;
+}
+.place .title {
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+}
+.content {
+    margin-bottom: 32px;
+}
+.contact {
+    font-size: 24px;
+    padding: 4px;
+}
+/* responsive */

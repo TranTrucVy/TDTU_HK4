@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <title>Lab5 - Exercise3</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .cell3x3 {
+            width: 240px;
+            height: 240px;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .cell2x5 {
+            width: 400px;
+            height: 160px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .imgRow {
+            clear: both;
+            float:left;
+            height: 80px;
+            width: 100%;
+        }
+
+        .imgCell {
+            float: left;
+            border: 1px solid black;
+            width: 80px;
+            height: 100%;
+        }
+
+        .noti {
+            background-color: rgb(218, 241, 220);
+            color: rgb(42, 82, 46);
+            width: 500px;
+            text-align: center;
+            font-size: large;
+            border-radius: 10px;
+            padding: 12px;
+            margin: auto;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+
+    <script>
+        let angles = [0, 90, 180, 270];
+        let arrangedPieces = 0; //Số mảnh đã được sắp xếp
+        //var img_angle = {};
+
+        function getOrder() {
+            let order = [];
+            let numImg = 10;
+            let i = 0;
+            while (i<numImg) {
+                o = Math.floor(Math.random()*10) + 1;
+                if (order.indexOf(o)===-1) {
+                    order[i] = o;
+                    i++;
+                }
+            }
+
+            let orderImg = [];
+            for (let i=0; i<10; i++) {
+                if (order[i]<10) {
+                    orderImg[i] = "cntt_0" + order[i].toString();
+                } else {
+                    orderImg[i] = "cntt_" + order[i].toString()
+                }
+            }
+            return orderImg;
+        }
+
+        function getRandomAngle() {
+            let orderAngle = [];
+            for (let i=0; i<10; i++) {
+                orderAngle[i] = angles[Math.floor(Math.random()*4)];
+            }
+            return orderAngle;
+        }
+        
+        function checkCorrect(){
+            let check = true;
+            let i = 1;
+            for (let r=0; r<3; r++) {
+                let row = $(".cell3x3 .imgRow").eq(r);
+                for (let c=0; c<3; c++) {
+                    let cell = $(row).children().eq(c);
+                    //Lấy id của ảnh trong ô
+                    let currImg = $(cell).children();
+
+                    let trueOrder = 'cntt_0' + (i).toString();
+                    
+                    if ($(currImg).data('angle')!=0 || $(currImg).attr('id')!=trueOrder) {
+                        check = false;
+                        break;
+                    }
+                    i++;
+                }
+                if (!check) {
+                    break;
+                } 
+            }
+            if (check) {
+                $(".noti").show();
+            } else {
+                $(".noti").hide();
+            }
+        }
+        
+        function allowDrop(event, dropLocation) {
+            if (dropLocation.childElementCount === 0) {
+                event.preventDefault();
+            }
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+
+            //event.target là <img>
+            let cell_id = $(event.target).parent().attr('id');
+            event.dataTransfer.setData("cell_start", cell_id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+
+            let idStartCell = event.dataTransfer.getData("cell_start").substring(0, 3);
+            let idEndCell = $(event.target).attr('id').substring(0, 3);
+            if (idStartCell!=idEndCell) {
+                if (idEndCell==='3x3') {
+                    arrangedPieces += 1;
+                } else {
+                    arrangedPieces -= 1;
+                }
+            }
+            if (arrangedPieces===9) {
+                checkCorrect();
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!--Tạo tiêu đề-->
+<div style="text-align: center; font-size: xx-large;">Xếp hình</div>
+
+<!--Tạo vùng chứa kết quả-->
+<div class="cell3x3" id='cell3x3'></div>
+
+<!--Tạo vùng chứa các mảnh ban đầu-->
+<div class="cell2x5" id='cell2x5'></div>
+
+<!--Tạo vùng hiển thị thông báo ghép đúng-->
+<div class="noti">Congratulations! You have completed the puzzle game.</div>
+
+<script>
+    //--- Tạo các ô chứa ảnh ---//
+    let cell3x3 = $(".cell3x3");
+    let cell2x5 = $(".cell2x5");
+    
+    for (let r=0; r<3; r++) {
+        let imgRow = document.createElement('div');
+        imgRow.setAttribute('class', 'imgRow');
+        for (let c=0; c<3; c++) {
+            let imgCell = document.createElement('div');
+
+            imgCell.setAttribute('class', 'imgCell');
+            imgCell.setAttribute('id', '3x3_' + r.toString() + '_' + c.toString());
+            imgCell.setAttribute('ondrop', "drop(event)");
+            imgCell.setAttribute("ondragover", "allowDrop(event, this)")
+            imgRow.append(imgCell);
+        }
+        cell3x3.append(imgRow);
+    }
+    for (let r=0; r<2; r++) {
+        let imgRow = document.createElement('div');
+        imgRow.setAttribute('class', 'imgRow');
+        for (let c=0; c<5; c++) {
+            let imgCell = document.createElement('div');
+
+            imgCell.setAttribute('class', 'imgCell');
+            imgCell.setAttribute('id', '2x5_' + r.toString() + '_' + c.toString());
+            imgCell.setAttribute('ondrop', "drop(event)");
+            imgCell.setAttribute("ondragover", "allowDrop(event, this)")
+            imgRow.append(imgCell);
+        }
+        cell2x5.append(imgRow);
+    }
+    
+    //--- Cho ảnh vào vùng 2x5---//
+    let row = $(".cell2x5 .imgRow").first();
+    let order = getOrder();
+    let angleOrder = getRandomAngle();
+    for (let r=0; r<2; r++) {
+        let cell = $(row).children().first();
+        for (let c=0; c<5; c++) {
+            let img = order.pop();
+            let angle = angleOrder.pop();
+            let src = 'images/' + img + '.gif';
+            cell.append("<img src='" + src + "' width='100%' " + 
+                        "style='transform: rotate(" + angle.toString() + "deg)' " +
+                        "id=" + img +
+                        " draggable='true' ondragstart='drag(event)'" + "'>");
+            
+            $(cell).children().data("angle", angle);
+            cell = cell.next();
+        }
+        row = row.next();
+    }
+
+    $("img").click(function(){
+        var angle;
+        if (!$(this).data('angle')) {
+            angle = 90;
+        } else {
+            angle = ($(this).data('angle') + 90) % 360;
+        }
+
+        $(this).css("transform", "rotate(" + angle + "deg)");
+        $(this).data('angle', angle);
+        if (arrangedPieces===9) {
+            checkCorrect();
+        }
+    });
+</script>
+</body>
+</html>

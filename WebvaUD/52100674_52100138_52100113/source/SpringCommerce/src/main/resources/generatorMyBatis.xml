@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3307/spring_commerce"
+			userId="root" password="Mayhabuoi0">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator
+			targetPackage="com.SpringCommerce.models"
+			targetProject="SpringCommerce" />
+
+		<sqlMapGenerator
+			targetPackage="com.SpringCommerce.mapper.sql"
+			targetProject="SpringCommerce/src/main/resources" />
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.SpringCommerce.mapper"
+			targetProject="SpringCommerce" />
+
+		<table tableName="categories" domainObjectName="Category">
+
+		</table>
+		<table tableName="products" domainObjectName="Product">
+
+		</table>
+		<table tableName="customer_new" domainObjectName="Customer">
+
+		</table>
+
+
+	</context>
+</generatorConfiguration>

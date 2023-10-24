@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5 - Exercise1</title>
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./Exercise1.css">
+
+    
+</head>
+<body>
+    <script>
+        let currentBgColor = 'rgb(255 , 255, 255)';
+
+        function randomColor() {
+            let r = Math.floor(Math.random()*256);
+            let g = Math.floor(Math.random()*256);
+            let b = Math.floor(Math.random()*256);
+            let color = 'rgb(' + r.toString() + ',' + g.toString() + ',' + b.toString() + ')';
+            return color;
+        }
+    </script>
+<!--Ô hiển thị thông tin màu-->
+<div class="colorInfo">Hover a cell</div>
+
+<!--Tạo palette-->
+<div class="colorPalette" id='colorPalette'></div>
+
+<!--Ô thông báo-->
+<div class="noti" style="display: none"></div>
+
+<script>
+    let palette = document.getElementById('colorPalette');
+
+    for (let r=0; r<10; r++) {
+        let colorRow = document.createElement('div');
+        colorRow.setAttribute('class', 'colorRow');
+        for (let c=0; c<10; c++) {
+            let colorCell = document.createElement('div');
+            let color = randomColor();
+
+            colorCell.setAttribute('class', 'colorCell');
+            colorCell.style.backgroundColor = color;
+            colorRow.append(colorCell);
+        }
+        palette.append(colorRow);
+    }
+
+    $(".colorCell").on({
+        mouseenter: function(){
+            let bgColor = $(this).css("backgroundColor");
+            
+            $('body').css("background-color", bgColor);
+            $('.colorInfo').html(bgColor);
+        },
+        mouseleave: function(){
+            $('body').css("background-color", currentBgColor);
+        },
+        click: function(){
+            currentBgColor = $(this).css("backgroundColor");
+
+            $('.noti').html('Background color has been changed.');
+            $('.noti').fadeIn("slow").delay(3000).fadeOut("slow");
+        }
+    });
+
+    $(".colorInfo").css("cursor", "pointer");
+
+    $(".colorInfo").click(function(){
+        navigator.clipboard.writeText(this.innerHTML);
+        $('.noti').html('Color has been copy to the clipboard.');
+        $('.noti').fadeIn("slow").delay(3000).fadeOut("slow");
+    })
+</script>
+
+</body>
+</html>

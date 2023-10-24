@@ -1,0 +1,1 @@
+Download file Football.apk về điện thoại android để sử dụng

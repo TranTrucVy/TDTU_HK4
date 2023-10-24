@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFAB91"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#81C784"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:background="@drawable/rectangle_bg2"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp">
+                <ImageView
+                    android:id="@+id/backToPick"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/white"
+                    android:layout_width="56dp"
+                    android:padding="2dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_back"/>
+            </LinearLayout>
+            <TextView
+                android:textColor="@color/black"
+                android:text="HQH Football"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:background="@drawable/rectangle_bg2"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp">
+                <ImageView
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/white"
+                    android:layout_width="56dp"
+                    android:padding="2dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_soccer"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sân số 1"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+        <TextView
+            android:text="Loại sân:"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/tv_type"
+            android:text="Sân 5 người"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/radius_round_border"
+        android:backgroundTint="@color/teal_200"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_pickDay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:paddingVertical="4dp"
+            android:background="@drawable/radius_round_solid"
+            android:text="Chọn ngày"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:backgroundTint="@color/white" />
+
+        <TextView
+            android:id="@+id/day_display"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="22/10/2022"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_table"
+        android:stretchColumns="*"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" >
+        <TableRow
+            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="-4dp"
+            android:background="@drawable/border_table">
+            <TextView
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Khung giờ" />
+            <TextView
+                android:layout_marginRight="-4dp"
+                android:background="@drawable/border_table"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Giá" />
+            <TextView
+                android:background="@drawable/border_table"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Tình trạng sân" />
+            <TextView
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Đặt sân" />
+        </TableRow>
+        <TableRow
+            android:layout_marginBottom="-4dp"
+            android:background="@drawable/border_table_1">
+            <TextView
+                android:id="@+id/tv_time_f1"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="7h - 8h30" />
+            <TextView
+                android:id="@+id/tv_price_f1"
+                android:layout_marginRight="-4dp"
+                android:background="@drawable/border_table_1"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="230k" />
+            <TextView
+                android:id="@+id/tv_state_f1"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/border_table_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Đã được đặt" />
+            <Button
+                android:id="@+id/btn_f1"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_width="24dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="-2dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="Đặt" />
+        </TableRow>
+        <TableRow
+            android:layout_marginBottom="-4dp"
+            android:background="@drawable/border_table_2">
+            <TextView
+                android:id="@+id/tv_time_f2"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="16h - 17h30" />
+            <TextView
+                android:id="@+id/tv_price_f2"
+                android:layout_marginRight="-4dp"
+                android:padding="5dp"
+                android:background="@drawable/border_table_2"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="230k" />
+            <TextView
+                android:id="@+id/tv_state_f2"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/border_table_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Đã được đặt" />
+            <Button
+                android:id="@+id/btn_f2"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="-2dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="Đặt" />
+        </TableRow>
+        <TableRow
+            android:layout_marginBottom="-4dp"
+            android:background="@drawable/border_table_1">
+            <TextView
+                android:id="@+id/tv_time_f3"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="18h - 19h30" />
+            <TextView
+                android:id="@+id/tv_price_f3"
+                android:layout_marginRight="-4dp"
+                android:padding="5dp"
+                android:background="@drawable/border_table_1"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="230k" />
+            <TextView
+                android:id="@+id/tv_state_f3"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/border_table_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Còn sân" />
+            <Button
+                android:id="@+id/btn_f3"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="-2dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="Đặt" />
+        </TableRow>
+        <TableRow
+            android:background="@drawable/border_table_2">
+            <TextView
+                android:id="@+id/tv_time_f4"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="19h45 - 21h15" />
+            <TextView
+                android:id="@+id/tv_price_f4"
+                android:layout_marginRight="-4dp"
+                android:padding="5dp"
+                android:background="@drawable/border_table_2"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="230k" />
+            <TextView
+                android:id="@+id/tv_state_f4"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:background="@drawable/border_table_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Còn sân" />
+            <Button
+                android:id="@+id/btn_f4"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="Đặt" />
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/show"
+        android:visibility="gone"
+        android:text="show Data"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

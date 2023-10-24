@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Table</title>
+</head>
+<body>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+
+    select{
+        float: left;
+    }
+    img{
+        float: left;
+    }
+</style>
+<select id="imageList" name="imageList" size="10">
+    <option id = '0' value="pic_001.jpg">pic_001.jpg</option>
+    <option id = '1' value="pic_002.jpg">pic_002.jpg</option>
+    <option id = '2' value="pic_003.jpg">pic_003.jpg</option>
+    <option id = '3' value="pic_004.jpg">pic_004.jpg</option>
+    <option id = '4' value="pic_005.jpg">pic_005.jpg</option>
+    <option id = '5' value="pic_006.jpg">pic_006.jpg</option>
+    <option id = '6' value="pic_007.jpg">pic_007.jpg</option>
+    <option id = '7' value="pic_008.jpg">pic_008.jpg</option>
+    <option id = '8' value="pic_009.jpg">pic_009.jpg</option>
+    <option id = '9' value="pic_010.jpg">pic_010.jpg</option>
+</select>
+<img id = "pic" src="pic_001.jpg">
+<button type="button" id = "back" onclick="back()">Back</button>
+<button type="button" id = "slideShow">Start slideshow</button>
+<button type="button" id = "stopSlide" style = "display : none">Stop slideshow</button>
+<button  type="button" id = "next" onclick="next()">Next</button>
+<p id ="idpic">pic_001.jpg (10/55)</p>
+</body>
+<script>
+    var img = document.getElementById("pic");
+    var id = document.getElementById("idpic");
+    var slide = document.getElementById("slideShow");
+    var stopSlide = document.getElementById("stopSlide");
+
+    var i = 0;
+    var imagesList = ["pic_001.jpg", "pic_002.jpg", "pic_003.jpg", "pic_004.jpg", "pic_005.jpg", 
+                      "pic_006.jpg", "pic_007.jpg", "pic_008.jpg", "pic_009.jpg", "pic_010.jpg"];
+    imageList.onchange = function(e){
+    img.src =  [e.currentTarget.value];
+    idpic.innerHTML = [e.currentTarget.value] + "("+ (10 + parseInt(e.target.options[e.target.selectedIndex].getAttribute("id")))+"/55)";
+    }
+    function back(){
+        if(i <= 0) i = imagesList.length;
+        i--;
+        return changePic();
+    }
+    function next(){
+        if(i >= imagesList.length -1) i = -1;
+        i++;
+        return changePic();
+    }
+    slide.onclick = function(){
+        let auto = setInterval(next,1000);
+        slide.style.display ='none';
+        stopSlide.style.display = "inline-block";
+            stopSlide.onclick = function(){
+                stopSlide.style.display ='none';
+                clearInterval(auto);
+                slide.style.display = "inline-block";
+        }
+    }
+    function changePic(){
+        return  img.setAttribute('src', imagesList[i]), idpic.innerHTML = imagesList[i] +"("+(10+i)+"/55)";
+    }
+    $('input[type ="checkbox"]').change(function() {
+        if ( this.name == 'bold') {
+            if ((this).checked){
+                $('p[id="output"]').css('font-weight', 'bold');
+            }
+            else $('p[id="output"]').css('font-weight', 'normal');
+        }else if (this.name == 'italic') {
+            if (this.checked) $('p[id="output"]').css('font-style', 'italic');
+            else $('p[id="output"]').css('font-style', 'normal');
+        }else if (this.name == 'underline') {
+            if (this.checked) $('p[id="output"]').css('text-decoration', 'underline');
+            else $('p[id="output"]').css('text-decoration', 'none');
+        }
+        });
+        function changeOut(){
+            output.innerHTML = message.value;
+        }
+</script>
+</html>

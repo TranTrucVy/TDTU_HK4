@@ -1,0 +1,102 @@
+html {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  z-index: 2;
+}
+
+.header .container .header-menu .navbar-nav .nav-item a {
+  color: #fff;
+  position: relative;
+  transition: all 0.5s;
+}
+.header .container .header-menu .navbar-nav .nav-item:hover a {
+  color: #35a22c;
+}
+.header .header-menu .navbar-nav .nav-item .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #35a22c;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.5s;
+}
+.header .header-menu .navbar-nav .nav-item .nav-link.active {
+  border-bottom: 3px solid #35a22c;
+  color: #35a22c;
+}
+.header .header-menu .navbar-nav .nav-item:hover .nav-link::after {
+  width: 100%;
+}
+.carousel {
+  height: 100vh;
+}
+.carousel .overlay {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  background-color: antiquewhite;
+}
+.carousel-dark .carousel-indicators [data-bs-target] {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #35a22c;
+}
+.carousel .carousel-inner .carousel-caption {
+  color: #fff !important;
+  position: absolute;
+  top: 0;
+  margin-top: 0;
+  z-index: 2;
+}
+.carousel .carousel-inner{
+    height: 100%;
+}
+.carousel .carousel-inner .carousel-caption img {
+  animation: fadeInUp 0.3s;
+  animation-delay: 0;
+}
+.carousel .carousel-inner .carousel-caption h5 {
+  animation-delay: 0.3s;
+  animation: fadeInUp 0.6s;
+}
+.carousel .carousel-inner .carousel-caption p {
+  animation-delay: 0.6s;
+  animation: fadeInUp 1s;
+}
+.carousel .carousel-item {
+  height: 100%;
+}
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.footer{
+  background:url(../image/3.jpg) no-repeat center;
+  background-size:cover;
+  padding: 100px 0 120px;
+  background-attachment:fixed ;
+  position: relative;
+}
+.footer .card{
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  transition: all 0.8s;
+  cursor: pointer;
+}
+.footer .card:hover{
+  border: 1px solid #fff !important;
+  background-color: #000;
+}

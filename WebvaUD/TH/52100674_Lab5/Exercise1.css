@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+.colorInfo {
+    background-color: rgb(69, 69, 69);
+    color: white;
+    width: 300px;
+    text-align: center;
+    font-size: larger;
+    border-radius: 16px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.colorPalette {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+
+.colorRow {
+    clear: both;
+    float:left;
+    height: 10%;
+    width: 100%;
+}
+
+.colorCell {
+    float: left;
+    border: 1px solid black;
+    width: 10%;
+    height: 100%;
+}
+
+.noti {
+    background-color: rgb(218, 241, 220);
+    color: rgb(42, 82, 46);
+    width: 500px;
+    text-align: center;
+    font-size: large;
+    border-radius: 10px;
+    padding: 16px;
+    margin: auto;
+    margin-top: 30px;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Check Out</title>
+<!-- Bootstrap CSS v5.2.1 -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+<link rel="stylesheet" type="text/css" th:href="@{css/checkout.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{css/template.css}" />
+</head>
+<body>
+	<!-- Header Start -->
+	<header id="header" class="header">
+		<div class="container-fluid">
+			<div class="wrapper__content">
+				<div
+						class="left d-flex align-items-center px-3 justify-content-between">
+					<a href="/"> <img th:src="@{img/logo.png}" alt="logo" />
+					</a>
+					<h5 class="text-white fw-bolder fs-3 mx-2"
+						th:style="@{margin-bottom: 0px}">Shoes Store</h5>
+				</div>
+				<div class="right px-3">
+					<a href="/cart" class="cart"> <span><img
+							th:src="@{/img/cart.png}" alt="" /></span> <span class="small-quantity"></span>
+					</a>
+					<!--					<a href="/login" class="login text">Login</a> <a href="/register"-->
+					<!--						class="register text">Register</a>-->
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header End -->
+
+	<!-- Menu Start -->
+	<section id="menu" class="menu">
+		<div class="container-fluid">
+			<div class="wrapper">
+				<a href="#" class="menu__item active">Home</a> <a href="#"
+					class="menu__item">Men</a> <a href="#" class="menu__item">Women</a>
+				<a href="#" class="menu__item">Kid</a> <a href="#"
+					class="menu__item">Sport</a>
+			</div>
+		</div>
+	</section>
+	<!-- Menu End -->
+
+	<div class="row p-5">
+		<div class="col-75">
+			<div class="container">
+				<form method="POST" action="/checkout">
+					<div class="row">
+						<div class="col-50">
+							<h3>Billing Address</h3>
+							<label for="fname">
+								<i class="fa fa-user"></i> Full Name
+							</label>
+							<input
+								type="text" id="fname" name="firstname"
+								placeholder="John M. Doe"> 
+							<label for="email">
+								<i class="fa fa-envelope"></i> Email</label> 
+							<input type="text" id="email"
+								name="email" placeholder="john@example.com"> 
+							<label for="adr">
+							<i class="fa fa-address-card-o"></i> Address</label> 
+							<input type="text" id="adr" name="address"
+								placeholder="542 W. 15th Street"> 
+							<label for="phoneNumber">Phone Number</label> 
+							<input type="text" id="phoneNumber" name="phoneNumber" placeholder="10001">
+						</div>
+					</div>
+					<a th:href="@{'/order-success'}"><button type="submit" class="btn btn-dark fs-5 fw-bolder">Submit
+						order</button></a>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-25">
+			<div class="container cart">
+				<h4 class="d-flex justify-content-between">
+					Cart <span class="price" style="color: black"> <i
+						class="fa fa-shopping-cart"></i> <b>4</b>
+					</span>
+				</h4>
+				<p class="d-flex justify-content-between">
+					<a href="#">Product 1</a> <span class="quantity">x3</span> <span
+						class="price">$15</span>
+				</p>
+				<hr>
+				<p class="d-flex justify-content-between">
+					Total <span class="price" style="color: black"><b>$30</b></span>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer Start -->
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="wrapper">
+				<div class="content1">
+					<div class="row row1">
+						<div class="col-lg-4 col-md-6 col-xs-12 column1 have-lined">
+							<h5>GET HELP</h5>
+							<ul>
+								<li>Contact us</li>
+								<li>Shopping</li>
+								<li>NIKEiD</li>
+								<li>Nike+</li>
+							</ul>
+						</div>
+						<div class="col-lg-4 col-md-6 col-xs-12 column1 have-lined">
+							<h5>ORDERS</h5>
+							<ul>
+								<li>Payment options</li>
+								<li>Shipping and delivery</li>
+								<li>Returns</li>
+							</ul>
+						</div>
+						<div class="col-lg-4 col-md-6 col-xs-12 column2 have-lined">
+							<h5>REGISTER</h5>
+							<p>Create one account to manage everything you do with Nike,
+								from your shopping preferences to your Nike+ activity.</p>
+							<a href="#">Learn more</a>
+						</div>
+					</div>
+				</div>
+				<div class="content2">
+					<div class="row row2">
+						<div class="col-lg-4 col-md-6 col-xs-12 column have-lined">
+							<h5>EMAIL SIGN UP</h5>
+							<p>Be the first to know about new products and special
+								offers.</p>
+							<a href="#">Sign up now</a>
+						</div>
+						<div class="col-lg-4 col-md-6 col-xs-12 column have-lined">
+							<h5>GET HELP</h5>
+							<p>Give the gift that always fits.</p>
+							<a href="#">View cards</a>
+						</div>
+						<div class="col-lg-4 col-md-6 col-xs-12 column have-lined">
+							<h5>STORES NEAR YOU</h5>
+							<p>Locate a Nike retail store or authorized retailer.</p>
+							<a href="#">Search</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer End -->
+	<!-- Button Back To Top Start -->
+	<button onclick="topFunction()" id="myBtn" class="btn-backTop"
+		title="Go to top">
+		<i class="fa fa-angle-up"></i>
+	</button>
+	<!-- Button Back To Top End -->
+
+	<!-- Bootstrap JavaScript Libraries -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js">
+		
+	</script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js">
+		
+	</script>
+
+	<script th:src="@{js/controller/checkout.js}">
+		
+	</script>
+
+	<!-- Seft-defined Script -->
+	<script>
+		// When the user scrolls down 90px from the top of the document, resize the navbar's padding and the logo's font size
+		window.onscroll = function() {
+			scrollFunction();
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 30
+					|| document.documentElement.scrollTop > 30) {
+				document.querySelector("button.btn-backTop").style.display = "block";
+			} else {
+				document.querySelector("button.btn-backTop").style.display = "none";
+			}
+		}
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clock">
+        <div class="hour-hand">
+        </div>
+        <div class="minute-hand">
+        </div>
+        <div class="second-hand">
+        </div>
+        <div class="circle">
+        </div>
+        <ul class="digits">
+            <li class="digit">1</li>
+            <li class="digit">2</li>
+            <li class="digit">3</li>
+            <li class="digit">4</li>
+            <li class="digit">5</li>
+            <li class="digit">6</li>
+            <li class="digit">7</li>
+            <li class="digit">8</li>
+            <li class="digit">9</li>
+            <li class="digit">10</li>
+            <li class="digit">11</li>
+            <li class="digit">12</li>
+        </ul>
+    </div>
+    <div class="time">hello baza</div>
+    <script>
+        $(function() {
+ 
+            setInterval( function() {
+            var seconds = new Date().getSeconds();
+            var sdegree = seconds * 6;
+            var srotate = "rotate(" + sdegree + "deg)";
+            
+            $(".second-hand").css({ "transform": srotate });
+                
+            }, 1000 );
+            
+            setInterval( function() {
+            var hours = new Date().getHours();
+            var mins = new Date().getMinutes();
+            var hdegree = hours * 30 + (mins / 2);
+            var hrotate = "rotate(" + hdegree + "deg)";
+            
+            $(".hour-hand").css({ "transform": hrotate});
+                
+            }, 1000 );
+      
+            setInterval( function() {
+            var mins = new Date().getMinutes();
+            var mdegree = mins * 6;
+            var mrotate = "rotate(" + mdegree + "deg)";
+            
+            $(".minute-hand").css({ "transform" : mrotate });                
+            }, 1000 );      
+
+            setInterval( function() {
+            var hours = new Date().getHours();
+            var mins = new Date().getMinutes();
+            var seconds = new Date().getSeconds();
+
+            $(".time").text(`${hours}:${mins}:${seconds}`);
+            }, 1000);
+      });
+    </script>
+</body>
+</html>

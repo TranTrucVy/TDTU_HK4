@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Management</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<style>
+    .alert{
+        max-width: 500px;
+        margin: auto;
+    }
+</style>
+
+<script>
+    var getStd_location = "http://localhost:8080/get-students.php";
+    var addStd_location = "http://localhost:8080/add-student.php";
+    var deleteStd_location = "http://localhost:8080/delete-student.php";
+    var updateStd_location = "http://localhost:8080/update-student.php";
+
+    function addRow(id, name, email, phone) {
+        $("tbody").append(
+            "<tr>" + 
+                "<td>" + id + "</td>" + 
+                "<td>" + name + "</td>" + 
+                "<td>" + email + "</td>" + 
+                "<td>" + phone + "</td>" + 
+                "<td><a id='editStudent' class=\"btn btn-sm btn-primary\" href=\"#\">Edit</a>  <a id='deleteStudent' class=\"btn btn-sm btn-danger\" href=\"#\" onclick=\"confirmRemoval()\">Delete</a></td>" +
+            "</tr>");
+    }
+
+    function showFailedMessage() {
+        
+        $('#failedMess').fadeIn().delay(3000).fadeOut();
+    }
+
+    function showSuccessMessage(act) {
+        $('#successMess').html(
+            '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+            '<strong>Success!</strong> ' + act + ' student success.'
+        );
+        $('#successMess').fadeIn().delay(5000).fadeOut();
+    }
+
+    $(document).ready(function ()  {
+        $('#successMess').hide();
+        $('#failedMess').hide();
+
+        // đọc dữ liệu ngay khi tải trang xong
+        $.get(getStd_location, function(data, status) {  
+            let n_students = Object.keys(data["data"]).length;
+            for (let i=0; i<n_students; i++) {
+                let student = data["data"][i];
+                addRow(data["data"][i].id, data["data"][i].name,
+                        data["data"][i].email, data["data"][i].phone);
+            }
+        }, "json");
+
+        $(".add-student").click(function () {
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+            
+            let stdName = $("#name").val();
+            let stdEmail = $("#email").val();
+            let stdPhone = $("#phone").val();
+            $.post(addStd_location, 
+            {
+                name: stdName,
+                email: stdEmail,
+                phone: stdPhone
+            }).done(function(data, status) {
+                if (status) {
+                    let id = parseInt($("tbody").children().last().children().first().html())+1;
+                    addRow(id, stdName, stdEmail, stdPhone);
+
+                    showSuccessMessage('Add');
+                    
+                    $("#name").val('');
+                    $("#email").val('');
+                    $("#phone").val('');
+                } else {
+                    showFailedMessage();
+                }
+            });
+        });
+    });
+
+    $(document).on('click', '#editStudent', function() {
+        //Index tính từ 0 (lấy id trong bảng - 1)
+        let currRow = $(event.target).parent().parent();
+        let stdIndex = $(currRow).parent().children().index($(currRow));
+        let stdName = $(event.target).parent().siblings("td").eq(1).html();
+        let stdEmail = $(event.target).parent().siblings("td").eq(2).html();
+        let stdPhone = $(event.target).parent().siblings("td").eq(3).html();
+
+        $("#name").val(stdName);
+        $("#email").val(stdEmail);
+        $("#phone").val(stdPhone);
+
+        $("#addBtn").addClass('disabled');
+        $("#updateBtn").removeClass('disabled');
+        
+        //Cập nhật dữ liệu
+        $("#updateBtn").click(function() {
+            if ($(this).hasClass("disabled")) {
+                console.log('Kg update duoc nha');
+                return;
+            }
+            var stdId;
+            $.get(getStd_location, function(data, status) {  
+                let n_students = Object.keys(data["data"]).length;
+                
+                stdId = data["data"][stdIndex].id;
+                //console.log(stdId);
+
+                $.post(updateStd_location, 
+                {
+                    id: stdId,
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    phone: $("#phone").val()
+                }).done(function(data, status) {
+                    if (status) {
+                        let row = $("tbody").children().eq(stdIndex);
+                        $(row).children().eq(0).html(stdId);
+                        $(row).children().eq(1).html($("#name").val());
+                        $(row).children().eq(2).html($("#email").val());
+                        $(row).children().eq(3).html($("#phone").val());
+                        
+                        showSuccessMessage('Update');
+
+                        $("#addBtn").removeClass('disabled');
+                        $("#updateBtn").addClass('disabled');
+                        $("#name").val('');
+                        $("#email").val('');
+                        $("#phone").val('');
+                    } else {
+                        showFailedMessage();
+                    }
+                });
+            }, "json");
+        });
+    })
+
+    $(document).on('click', '#deleteStudent', function() {
+        let currRow = $(event.target).parent().parent();
+        let stdIndex = $(currRow).parent().children().index($(currRow));
+        let stdName = $(currRow).children().eq(1).html();
+
+        confirmRemoval(stdName);
+
+        $(document).on('click', '#delete-button', function() {
+            var stdId;
+            $.get(getStd_location, function(data, status) {  
+                //let n_students = Object.keys(data["data"]).length;
+                let dssv = data["data"]
+                let n_students = dssv.length;
+                stdId = dssv[stdIndex].id;
+                
+                $.post(deleteStd_location, 
+                {
+                    id: stdId
+                }).done(function(data, status) {
+                    if (status) {
+                        currRow.remove();
+                        showSuccessMessage('Delete');
+                    } else {
+                        showFailedMessage();
+                    }
+                });
+            }, "json"); 
+        })
+    })
+
+    function confirmRemoval(studentName) {
+        document.getElementById("producer-name").innerHTML = studentName;
+        $('#confirm-removal-modal').modal({show: true});
+    }
+    
+    // hiện thông báo lỗi
+    function showFailedDialog() {
+        document.getElementById("error-message").innerHTML = "An unknown error occured. Please try again later";
+        $('#delete-failed-modal').modal({show: true});
+    }
+
+</script>
+<div class="container-fluid">
+    <h3 class="text-primary mt-3 mb-3">Student Management using Ajax</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <form class="form-horizontal w-100">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter phone">
+                </div>
+
+                <div class="form-group">
+                    <button id="addBtn" type="button" class="btn btn-success add-student">Add</button>
+                    <button id="updateBtn" type="submit" class="btn btn-warning disabled">Update</button>
+                </div>
+            </form>
+
+
+        </div> <!-- Col 1 -->
+        <div class="col-md-9 mt-2">
+            <table class="table table-hover mt-4">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+
+
+        </div> <!-- col 2-->
+    </div>
+
+
+    <br><br>
+    <div id="successMess" class="alert alert-success alert-dismissable ">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Delete student success.
+    </div>
+    <br>
+    <div id="failedMess" class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Failed!</strong> An unknown eror occured. Please try again later.
+    </div>
+
+</div>
+
+
+<!-- Confirm Removal Modal -->
+<div class="modal fade" id="confirm-removal-modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Xóa sinh viên</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa sinh viên <strong id="producer-name">My Tam</strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="delete-button" class="btn btn-danger" data-dismiss="modal">Xóa</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+            </div>
+        </div>
+
+    </div>
+</div><!-- Confirm Removel modal -->
+
+
+</body>
+</html>

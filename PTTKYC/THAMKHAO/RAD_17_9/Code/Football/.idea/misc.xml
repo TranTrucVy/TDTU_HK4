@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/bg5_orange_border.xml" value="0.173" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/border_table.xml" value="0.169" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/border_table_1.xml" value="0.236" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/border_table_2.xml" value="0.236" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/button_style.xml" value="0.1655" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/ic_authen.xml" value="0.173" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/ic_email_signin.xml" value="0.1" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/ic_gridview.xml" value="0.147" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/ic_listview.xml" value="0.173" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/ic_settings.xml" value="0.173" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/ic_soccer.xml" value="0.146" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/radius_round_border.xml" value="0.1475" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/rectangle_bg2.xml" value="0.197" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/rectangle_bg3.xml" value="0.147" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/rectangle_solid_bg1.xml" value="0.173" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/drawable/row_style_bg.xml" value="0.173" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_confirm_pick.xml" value="0.264" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_forgot.xml" value="0.264" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_history_pick.xml" value="0.2" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_pick_field.xml" value="0.2925311203319502" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/row_field.xml" value="0.264" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/layout/row_history.xml" value="0.42680776014109345" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/menu/nav_menu.xml" value="0.25" />
+        <entry key="..\:/Mobile App/Football/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1215" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

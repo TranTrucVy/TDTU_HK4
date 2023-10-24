@@ -1,0 +1,16 @@
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\bin\Debug\SoccerManagement.exe.config
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\bin\Debug\SoccerManagement.exe
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\bin\Debug\SoccerManagement.pdb
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\bin\Debug\Guna.UI2.dll
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.csproj.AssemblyReference.cache
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.csproj.SuggestedBindingRedirects.cache
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.Form1.resources
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.Properties.Resources.resources
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.csproj.GenerateResource.cache
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.csproj.CoreCompileInputs.cache
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.csproj.CopyComplete
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.exe
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.pdb
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.Homepage.resources
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.AddMatch.resources
+E:\ComputerScience\HK4\CNPM\CK\SoccerManagement\SoccerManagement\obj\Debug\SoccerManagement.FUser.resources

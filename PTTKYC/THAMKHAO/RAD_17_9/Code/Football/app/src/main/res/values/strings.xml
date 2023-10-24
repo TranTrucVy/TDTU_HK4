@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Football</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="fr1_san5">250k</string>
+    <string name="fr2_san5">300k</string>
+    <string name="fr3_san5">350k</string>
+    <string name="fr4_san5">400k</string>
+    <string name="fr1_san7">350k</string>
+    <string name="fr2_san7">400k</string>
+    <string name="fr3_san7">450k</string>
+    <string name="fr4_san7">500k</string>
+    <string name="state_0">Đã được đặt</string>
+    <string name="state_1">Còn sân</string>
+    <string name="san5">Sân 5 người</string>
+    <string name="san7">Sân 7 người</string>
+</resources>

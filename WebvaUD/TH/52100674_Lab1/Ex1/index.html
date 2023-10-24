@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <!-- <link rel="stylesheet" href="ex1.css"> -->
+    <style>
+        td, th {
+            padding: 10px;
+        } 
+        .text_aligh1{
+            text-align: center;
+        }
+        .text_aligh{
+            text-align: center;
+            background-color: rgb(245, 229, 149);
+        }
+        .table{
+            background-color: gray;
+        }
+        .content_1{
+            color: rgb(121, 24, 121);
+            font-weight: bold;
+        }
+        .gray_1{
+            background-color: rgb(213, 212, 212);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;" >
+        <div>
+            <h3 class="title" style="color:rgb(121, 24, 121);">STUDENT SCHEDULE</h3>
+            <table border="1" cellmargin="5px">
+                <tr>
+                    <td class="content_1">DAY/PERIOD</td>
+                    <td>I</td>
+                    <td>II</td>
+                    <td style="background-color: greenyellow;" rowspan="8">LUNCH</td>
+                    <td>III</td>
+                    <td>IV</td>
+                </tr>
+                <tr>
+                    <td class="content_1">MONDAY</td>
+                    <td>Math</td>
+                    <td>Physics</td>
+                    <td class="gray_1" colspan="2" rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="content_1">TUESDAY</td>
+                    <td class="text_aligh" colspan="2">LAB</td>
+                </tr>
+                <tr>
+                    <td class="content_1">WEDNESDAY</td>
+                    <td>History</td>
+                    <td>Music</td>
+                    <td class="text_aligh1" colspan="2">SEMINAR</td>
+                </tr>
+                <tr>
+                    <td class="content_1">THURSDAY</td>
+                    <td>Physical Education</td>
+                    <td>Swimming</td>
+                    <td>Chemistry</td>
+                    <td>Biology</td>
+                </tr>
+                <tr>
+                    <td class="content_1">FRIDAY</td>
+                    <td class="text_aligh" colspan="2">LAB</td>
+                    <td>Geography</td>
+                    <td>Informatics</td>
+                </tr>
+                <tr>
+                    <td class="content_1">SATURDAY</td>
+                    <td>Math</td>
+                    <td>Physics</td>
+                    <td class="text_aligh" colspan="2">LAB</td>
+                </tr>
+                <tr>
+                    <td class="content_1">SUNDAY</td>
+                    <td class="gray_1" colspan="2"></td>
+                    <td class="gray_1"></td>
+                    <td>Homework</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

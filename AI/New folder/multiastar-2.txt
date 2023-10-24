@@ -1,0 +1,34 @@
+
+MultiFoodSearch
+
+
+function astar(obj : multiFoodSearchProblem):
+	1. remailGoal = obj.goalList
+	2. nextGoal <- getNearestGoal(obj)
+	3. totalPath <- []
+
+	loop do :
+
+		1. if remainGoal == empty -> return totalPath
+
+		2. path <- astar_single(goal <- nextGoal)
+		3. totalPath += path
+		4. xoá nextGoal khỏi remainGoal
+		5. nextGoal <- getNearestGoal(obj)
+
+
+
+function gbfs(obj : multiFoodSearchProblem):
+	1. remailGoal = obj.goalList
+	2. nextGoal <- getNearestGoal(obj)
+	3. totalPath <- []
+
+	loop do :
+
+		1. if remainGoal == empty -> return totalPath
+
+		2. path <- astar_single(goal <- nextGoal)
+		3. totalPath += path
+		4. xoá nextGoal khỏi remainGoal
+		5. nextGoal <- getNearestGoal(obj)
+			
